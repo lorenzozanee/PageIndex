@@ -252,7 +252,7 @@ class LocalAPI:
             raise PageIndexAPIError(f"Failed to submit document: {reason}")
         write_node_id(structure)
         description = generate_doc_description(
-            create_clean_structure_for_description(structure),
+            create_clean_structure_for_description(structure, max_depth=1),
             model=self._summary_model,
         )
         return structure, description
